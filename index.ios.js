@@ -22,12 +22,6 @@ var word_endpoint = function(word) { return 'http://words.bighugelabs.com/api/2/
                                      '/' + word  +
                                      '/json' };
 
-var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
-var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
-var PAGE_SIZE = 25;
-var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
-var REQUEST_URL = API_URL + PARAMS;
-
 var AwesomeProject = React.createClass({
   getInitialState: function() {
 
@@ -78,36 +72,12 @@ return {
        );
   },
 
-  renderLoadingView: function() {
-    return (
-      <View style={styles.container}>
-        <Text>
-          Loading movies...
-        </Text>
-      </View>
-    );
-  },
-
   renderWord: function(word) {
     return (<View style={styles.container}>
             <Text style={styles.title}>{word}</Text>
             </View>);
   },
 
-  renderMovie: function(movie) {
-    return (
-      <View style={styles.container}>
-        <Image
-          source={{uri: movie.posters.thumbnail}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.year}>{movie.year}</Text>
-        </View>
-      </View>
-    );
-  },
 });
 
 var styles = StyleSheet.create({
@@ -121,15 +91,7 @@ var styles = StyleSheet.create({
   rightContainer: {
     flex: 1,
   },
-  title: {
-    fontSize: 20,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  year: {
-    textAlign: 'center',
-  },
-  thumbnail: {
+ thumbnail: {
     width: 53,
     height: 81,
   },
